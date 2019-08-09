@@ -153,22 +153,62 @@ my.sin_addr.s_addr = INADDR_ANY;
 bzero(&my, 8) 
 bind(sock, (struct sockaddr *)&my, sizeof(my));
 ```
-Listen() – Wait for a connection
-The server process calls listen to tell the kernel to initialize a wait queue of connections for this socket. Int Listen(int sock, int backlog) sock = socket returned by socket() backlog = Maximum length of the pending connections queue 
-Example: Listen(sock, 10); This will allow a maximum of 10 connections to be in pending state.
-Accept() – A new connection !
-Accept is called by a Server process to accept new connections from new clients trying to connect to the server. Int Accept(int socket, (struct sockaddr *)&client, socklen_t *client_len) socket = the socket in listen state client = will hold the new client’s information when accept returns client_len = pointer to size of the client structure 
-Example : struct sockaddr_in client; int len = sizeof(client); Accept(sock, (struct sockaddr *)&client, &len);
-Connect() – connect to a service
-Connect is called by a client to connect to a server port. Int Connect(int sock, (struct sockaddr *)&server_addr, socklen_t len) sock: a socket returned by socket() server_addr: a sockaddr_in struct pointer filled with all the remote server details and cast as a sockaddr struct pointer len: size of the server_addr struct 
-Example: connect(sock, (struct sockaddr *)server_addr, len); 
-Send / Recv – Finally Data !!	
-Send(), Recv() , Read() , Write() etc calls are used to send and receive data . Int send(int sock, void *mesg, size_t len, int flags) Int recv(int sock, void *mesg, size_t len, int flags) sock = A connected socket mesg = Pointer to a buffer to send/receive data from/in . len = Size of the message buffer flags = 0 (for our purpose) The return value is the number of bytes actually sent/received. 
-Example: char send_buffer[1024]; char recv_buffer[1024]; int sent_bytes; int recvd_bytes; sent_bytes = send(sock, send_buffer, 1024, 0); recvd_bytes = recv(sock, recv_buffer, 1024, 0);
-Close() – Bye ..Bye ! 
-Close signals the end of communication between a server-client pair. This effectively closes the socket. Int close(int sock) sock = the socket to close 
-Example : close(sock);
-Done ! ! Phew ….
+## Listen() – Wait for a connection
+```
+- The server process calls listen to tell the kernel to initialize a wait queue of connections for this socket. 
+- Int Listen(int sock, int backlog) sock = socket returned by socket() backlog = Maximum length of the pending connections queue 
+- Example: Listen(sock, 10); This will allow a maximum of 10 connections to be in pending state.
+```
+## Accept() – A new connection !
+```
+Accept is called by a Server process to accept new connections from new clients trying to connect to the server. 
+Int Accept(int socket, (struct sockaddr *)&client, socklen_t *client_len) 
+socket = the socket in listen state client = will hold the new client’s information when accept returns client_len = pointer to size of the client structure 
+Example : struct sockaddr_in client; 
+int len = sizeof(client);
+Accept(sock, (struct sockaddr *)&client, &len);
+```
+## Connect() – connect to a service
+```
+Connect is called by a client to connect to a server port. 
+Int Connect(int sock, (struct sockaddr *)&server_addr, socklen_t len) 
+sock: a socket returned by socket() 
+server_addr: a sockaddr_in struct pointer filled with all the remote 
+server details and cast as a sockaddr struct pointer 
+len: size of the server_addr struct 
+
+Example: 
+    connect(sock, (struct sockaddr *)server_addr, len); 
+```
+## Send / Recv – Finally Data !!	
+```
+Send(), Recv() , Read() , Write() etc calls are used to send and receive data . 
+Int send(int sock, void *mesg, size_t len, int flags) Int recv(int sock, void *mesg, size_t len, int flags) sock = A connected socket mesg = Pointer to a buffer to send/receive data from/in . 
+len = Size of the message buffer 
+flags = 0 (for our purpose)
+
+The return value is the number of bytes actually sent/received. 
+
+Example:
+char send_buffer[1024]; 
+char recv_buffer[1024]; 
+int sent_bytes; 
+int recvd_bytes; 
+
+sent_bytes = send(sock, send_buffer, 1024, 0);
+recvd_bytes = recv(sock, recv_buffer, 1024, 0);
+```
+## Close() – Bye ..Bye ! 
+```
+Close signals the end of communication between a server-client pair. 
+This effectively closes the socket. 
+Int close(int sock) 
+sock = the socket to close 
+
+Example : 
+close(sock);
+```
+## Done ! ! Phew ….
 This is all the theory you need to know about socket programming !!! 
 Finer points will be more clear when we being coding . 
-So let the games begin ……… :D 
+So let the games begin ……
