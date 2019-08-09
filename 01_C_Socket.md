@@ -61,13 +61,14 @@ A telephone call over a “telephony network” works as follows:
 ## A UDP Server – Client Interaction
 ![image](https://user-images.githubusercontent.com/47218880/62791984-e36c5f80-ba93-11e9-900b-122cba9ac591.png)
 
-Before we dive deeper …Data Structures
+## Before we dive deeper …Data Structures
 Let us now look at the data structures used 
 to hold all the address Information:
-
-Struct sockaddr {	unsigned short sa_family; 	char sa_data[14];}
-Struct sockaddr_in {	short sin_family;	unsigned short sin_port; // Port Number	struct in_addr sin_addr; // IP Address	char sin_zero[8];}
-Struct in_addr {	unsigned long s_addr; // 4 bytes long }	
+```C
+Struct sockaddr {	unsigned short sa_family; 	char sa_data[14];}
+Struct sockaddr_in {	short sin_family;	unsigned short sin_port; // Port Number	struct in_addr sin_addr; // IP Address	char sin_zero[8];}
+Struct in_addr {	unsigned long s_addr; // 4 bytes long }	
+```
 
 Before we dive deeper……Byte Ordering 
 Byte ordering or Endianess is the attribute of a system which indicates whether integers are stored / represented left to right or right to left.
