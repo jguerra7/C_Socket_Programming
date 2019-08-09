@@ -65,9 +65,19 @@ A telephone call over a “telephony network” works as follows:
 Let us now look at the data structures used 
 to hold all the address Information:
 ```C
-Struct sockaddr {	unsigned short sa_family; 	char sa_data[14];}
-Struct sockaddr_in {	short sin_family;	unsigned short sin_port; // Port Number	struct in_addr sin_addr; // IP Address	char sin_zero[8];}
-Struct in_addr {	unsigned long s_addr; // 4 bytes long }	
+Struct sockaddr {	
+    unsigned short sa_family; 	
+    char sa_data[14];
+    }
+Struct sockaddr_in {	
+    short sin_family;	
+        unsigned short sin_port; // Port Number	
+        struct in_addr sin_addr; // IP Address	
+        char sin_zero[8];
+        }
+Struct in_addr {	
+    unsigned long s_addr; // 4 bytes long 
+    }	
 ```
 
 Before we dive deeper……Byte Ordering 
