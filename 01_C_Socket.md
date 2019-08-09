@@ -55,8 +55,12 @@ A telephone call over a “telephony network” works as follows:
 - In the socket programming world almost all communication is based on the Client-Server model.
 - The Server starts up first and waits for a client to connect to it. After a client successfully connects, it requests some information. The Server serves this information to the client. The client then disconnects and the Server waits for more clients.
 ```
-A TCP Server – Client Interaction
-A UDP Server – Client Interaction
+## A TCP Server – Client Interaction
+tcpserver.png
+
+## A UDP Server – Client Interaction
+UDP server.png
+
 Before we dive deeper …Data Structures
 Let us now look at the data structures used 
 to hold all the address Information:
