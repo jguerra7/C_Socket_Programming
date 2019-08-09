@@ -2,7 +2,7 @@
 # Socket Programming 101
 
 # Why Socket Programming ?
-    “To build any Networked Application”
+    To build any Networked Application”
 - WWW ( Internet Explorer , Firefox )
 - FTP (WS FTP )
 - P2P (Limewire, Bitcomet)
@@ -17,7 +17,7 @@ Same principles can be used to code on windows as well using the winsock library
 ```
 ## Network Programming huh ? Telephone Analogy
 ```
-A telephone call over a “telephony network” works as follows:
+A telephone call over a “telephony network” works as follows:
 - Both parties have a telephone installed.
 - A phone number is assigned to each telephone.
 - Turn on ringer to listen for a caller. 
@@ -26,31 +26,35 @@ A telephone call over a “telephony network” works as follows:
 - Both Parties talk and exchange data.
 - After conversation is over they hang up the phone.
 ```
-Dissecting the Analogy
-A network application works as follows:
-An endpoint (telephone) for communication is created on both ends.
-An address (phone no) is assigned to both ends to distinguish them from the rest of the network.
-One of the endpoints (caller) initiate a connection to the other.
-The other end (receiver) point waits for the communication to start.
-Once a connection has been made, data is exchanged (talk).
-Once data has been exchanged the endpoints are closed (hang up).
+## Dissecting the Analogy
+```
+- A network application works as follows:
+- An endpoint (telephone) for communication is created on both ends.
+- An address (phone no) is assigned to both ends to distinguish them from the rest of the network.
+- One of the endpoints (caller) initiate a connection to the other.
+- The other end (receiver) point waits for the communication to start.
+- Once a connection has been made, data is exchanged (talk).
+- Once data has been exchanged the endpoints are closed (hang up).
+```
 
-
-
-In the world of sockets……
-Socket() – Endpoint for communication
-Bind()  - Assign a unique telephone number.
-Listen() – Wait for a caller.
-Connect()  - Dial a number.
-Accept() – Receive a call.
-Send(), Recv() – Talk.
-Close() – Hang up. 
-The Client – Server model
-Server – An entity which is a provider of information.
-Client – An entity which is a seeker of information.
-Example – Apache is a web server providing web pages (information) and Internet Explorer is a web client which requests those pages from the server.
-In the socket programming world almost all communication is based on the Client-Server model.
-The Server starts up first and waits for a client to connect to it. After a client successfully connects, it requests some information. The Server serves this information to the client. The client then disconnects and the Server waits for more clients.
+## In the world of sockets……
+```
+- Socket() – Endpoint for communication
+- Bind()  - Assign a unique telephone number.
+- Listen() – Wait for a caller.
+- Connect()  - Dial a number.
+- Accept() – Receive a call.
+- Send(), Recv() – Talk.
+- Close() – Hang up. 
+```
+## The Client – Server model
+```
+- Server – An entity which is a provider of information.
+- Client – An entity which is a seeker of information.
+- Example – Apache is a web server providing web pages (information) and Internet Explorer is a web client which requests those pages from the server.
+- In the socket programming world almost all communication is based on the Client-Server model.
+- The Server starts up first and waits for a client to connect to it. After a client successfully connects, it requests some information. The Server serves this information to the client. The client then disconnects and the Server waits for more clients.
+```
 A TCP Server – Client Interaction
 A UDP Server – Client Interaction
 Before we dive deeper …Data Structures
