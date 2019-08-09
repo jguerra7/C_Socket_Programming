@@ -120,7 +120,8 @@ Ascii dotted to Binary: inet_aton()
 Binary to Ascii dotted: inet_ntoa() 
 Many others exist …… explore the man pages 
 ```
-Diving Deeper into the syscalls()
+## Diving Deeper into the syscalls()
+```
 We will now describe the following calls in detail :
 Socket()
 Bind()
@@ -130,13 +131,28 @@ Connect()
 Read() / Send() / Sendto()
 Write() / Recv() / Recvfrom()
 Close()
-Socket() – A Connection Endpoint
-This creates an endpoint for a network connection. Int Socket(int doman, int type, int protocol) domain = PF_INET (IPv4 communication) type = SOCK_STREAM (TCP) , SOCK_DGRAM (UDP) protocol = 0 (for our discussion)
+```
+## Socket() – A Connection Endpoint
+```
+- This creates an endpoint for a network connection. 
+- Int Socket(int doman, int type, int protocol) 
+- domain = PF_INET (IPv4 communication) type = SOCK_STREAM (TCP) , SOCK_DGRAM (UDP) protocol = 0 (for our discussion)
 Example : socket(PF_INET, SOCK_STREAM, 0); This will create a TCP socket. 
-The call returns a socket descriptor on success and -1 on an error. 
-Bind() – Attaching to an IP and Port
-A server process calls bind to attach itself to a specific port and IP address. Int Bind(int sockfd, struct sockaddr *my_addr, socklen_t addrlen) sockfd = socket descriptor returned by socket() my_addr = pointer to a valid sockaddr_in structure cast as a sockaddr * pointer addrlen = length of the sockaddr_in structure 
-Example : struct sockaddr_in my; my.sin_family = PF_INET; my.sin_port = htons(80); my.sin_addr.s_addr = INADDR_ANY; bzero(&my, 8) bind(sock, (struct sockaddr *)&my, sizeof(my));
+The call returns a socket descriptor on success and -1 on an error.
+```
+## Bind() – Attaching to an IP and Port
+```
+- A server process calls bind to attach itself to a specific port and IP address. 
+Int Bind(int sockfd, struct sockaddr *my_addr, socklen_t addrlen) 
+sockfd = socket descriptor returned by socket() 
+my_addr = pointer to a valid sockaddr_in structure cast as a sockaddr * pointer 
+addrlen = length of the sockaddr_in structure 
+- Example : struct sockaddr_in my;
+my.sin_family = PF_INET; my.sin_port = htons(80); 
+my.sin_addr.s_addr = INADDR_ANY; 
+bzero(&my, 8) 
+bind(sock, (struct sockaddr *)&my, sizeof(my));
+```
 Listen() – Wait for a connection
 The server process calls listen to tell the kernel to initialize a wait queue of connections for this socket. Int Listen(int sock, int backlog) sock = socket returned by socket() backlog = Maximum length of the pending connections queue 
 Example: Listen(sock, 10); This will allow a maximum of 10 connections to be in pending state.
