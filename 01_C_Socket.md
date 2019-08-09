@@ -56,12 +56,12 @@ A telephone call over a “telephony network” works as follows:
 - The Server starts up first and waits for a client to connect to it. After a client successfully connects, it requests some information. The Server serves this information to the client. The client then disconnects and the Server waits for more clients.
 ```
 ## A TCP Server – Client Interaction
-tcpserver.png
+![image](https://user-images.githubusercontent.com/47218880/62791945-d2235300-ba93-11e9-9a57-a1b2772388e3.png)
 
 ## A UDP Server – Client Interaction
-UDP server.png
+![image](https://user-images.githubusercontent.com/47218880/62791984-e36c5f80-ba93-11e9-900b-122cba9ac591.png)
 
-Before we dive deeper …Data Structures
+Before we dive deeper …Data Structures
 Let us now look at the data structures used 
 to hold all the address Information:
 
